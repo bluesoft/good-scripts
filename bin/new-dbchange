@@ -1,0 +1,4 @@
+#/bin/bash
+BRANCH_ATUAL=$(git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/\1/')
+bee dbchange:create $BRANCH_ATUAL
+echo "Dbchange com nome do branch criado!"
