@@ -1,4 +1,4 @@
 #!/bin/bash
-echo "serching files css|html|jsp|xml|js que estao com o charset=$1" 
+echo "procurando arquivos que estao com o charset=$1" 
 find -E . -regex '.*' -exec file --mime {} \; | grep "charset=$1"
 
