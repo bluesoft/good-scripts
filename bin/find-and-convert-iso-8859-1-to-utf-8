@@ -1,0 +1,10 @@
+#!/bin/bash
+files=$(find -E . -regex '.*.(css|html|jsp|jspf|xml|js|tag|properties)' -exec file --mime {} \; | grep "charset=iso-8859-1" | awk -F: '{print $1}');
+
+for ARG in $files
+    do
+      echo 'converting' $ARG 'to UTF-8'
+        iconv -f ISO-8859-1 -t UTF-8 $ARG > $ARG.utf8
+        echo 'moving' $ARG.utf8
+        mv $ARG.utf8 $ARG
+done
