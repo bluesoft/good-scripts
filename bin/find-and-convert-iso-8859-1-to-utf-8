@@ -1,5 +1,5 @@
 #!/bin/bash
-files=$(find -E . -regex '.*.(css|html|jsp|jspf|xml|js|tag|properties)' -exec file --mime {} \; | grep "charset=iso-8859-1" | awk -F: '{print $1}');
+files=$(find -E . -regex '.*.(css|html|jsp|jspf|xml|js|tag|properties|java|sql)' -exec file --mime {} \; | grep "charset=iso-8859-1" | awk -F: '{print $1}');
 
 for ARG in $files
     do
